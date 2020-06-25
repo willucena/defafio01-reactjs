@@ -4,6 +4,7 @@ import "./styles.css";
 
 function App() {
   const [repositories, setRepositories ] = useState([])
+  
   useEffect(()=> {
     api.get('repositories').then(
       response => {
@@ -14,17 +15,15 @@ function App() {
   async function handleAddRepository() {
     try{
       const response = await api.post('repositories', {
-        title: 'Desafio ReactJS'
+        title: 'Desafio ReactJS',
+        url: 'https://github.com/willucena/defafio01-reactjs',
+        techs: ['JavaScript', 'PHP']
       });
-
       const respository = response.data;
       setRepositories([...repositories, respository]);
-
-      return respository;
     }catch(e){
       console.log(e)
     }
-
   }
 
   async function handleRemoveRepository(id) {
