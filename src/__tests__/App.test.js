@@ -58,7 +58,7 @@ describe("App component", () => {
     await actWait();
 
     fireEvent.click(getByText("Remover"));
-
+    
     await actWait();
 
     expect(getByTestId("repository-list")).toBeEmpty();
